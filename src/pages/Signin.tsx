@@ -13,14 +13,39 @@ const SignIn = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await authService.login(email, password);
-      login(response.data.token, response.data.user);
-      navigate('/dashboard');
-    } catch (error) {
-      alert('Login failed');
-      console.error('Login error:', error);
+
+    if (!email || !password) {
+        alert('Please enter both email and password');
+        return;
     }
+    
+
+
+
+    
+  try {
+    console.log('Starting login attempt...'); // Debug log
+    const response = await authService.login(email, password);
+    console.log('Login response received:', response); // Debug log
+
+    if (response.data.token) {
+      console.log('Token found, logging in...'); // Debug log
+      login(response.data.token, {
+          email,
+          id: 0,
+          firstname: '',
+          lastname: ''
+      });
+      navigate('/dashboard');
+    } else {
+      alert('Login succeeded but no token received. Please try again.');
+    }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.error('Login error details:', error); // Debug log
+    const errorMessage = error.response?.data?.error || error.message || 'Unknown error';
+    alert(`Login failed: ${errorMessage}`);
+  }
   };
 
   return (
