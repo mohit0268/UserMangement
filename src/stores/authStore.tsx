@@ -5,14 +5,14 @@ interface User{
     id: number,
     firstname: string,
     lastname:string,
-    email: string,
+    email:string
 }
 
 interface AuthState {
   user: User | null;
   token: string | null;
   isAuthenticated: boolean;
-  login: (token: string, user: User) => void;
+  login: (token: string, user: User) => void; 
   logout: () => void;
 }
 

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import SignIn from "./pages/Signin";
 import SignUp from './pages/Signup';
-import Dashboard from './pages/dashboard';
+import Dashboard from './pages/Dashboard';
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
 
@@ -10,7 +10,6 @@ import "./App.css";
 function App() {
   return (
     <>
-      //Routes
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/signin" />} />
