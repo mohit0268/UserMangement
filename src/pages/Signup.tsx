@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
 import { authService } from '../services/getData';
 import Form from '../components/Form';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');

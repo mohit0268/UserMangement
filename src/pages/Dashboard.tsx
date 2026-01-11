@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useUserStore } from '../stores/userStore';
 import { useAuthStore } from '../stores/authStore';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 const Dashboard = () => {
   const { users, fetchUsers } = useUserStore();
